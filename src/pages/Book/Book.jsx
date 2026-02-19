@@ -1,7 +1,16 @@
 import { Link } from "react-router";
 
 const Book = ({ book }) => {
-  const { bookId, image, bookName, author, tags, category, rating } = book;
+  const {
+    bookId,
+    image,
+    bookName,
+    author,
+    tags,
+    category,
+    rating,
+    totalPages,
+  } = book;
   return (
     <Link to={`/bookDetails/${bookId}`}>
       <div className="border border-sky-200 card bg-base-100 shadow-xl p-4 hover:bg-green-50 ease-in-out duration-500">
@@ -19,7 +28,10 @@ const Book = ({ book }) => {
               </button>
             ))}
           </div>
-          <h2 className="card-title">{bookName}</h2>
+          <h2 className="card-title">
+            {bookName}
+            <div className="badge badge-secondary">{totalPages}</div>
+          </h2>
           <p>By: {author}</p>
           <div className="border-t-2 border-dashed my-1"></div>
           <div className="card-actions justify-between">
